@@ -55,6 +55,12 @@ let UNREAD_CONTACTS = []; //Auto fill
       if (UNREAD_CONTACTS.length > 0) {
         for (let contact of UNREAD_CONTACTS) {
           let messageToRespond = contact.lastMsg;
+          if (
+            messageToRespond.includes("escribiendo...") ||
+            messageToRespond.includes("typing...")
+          ) {
+            continue;
+          }
           console.log(`Q => ${messageToRespond}`);
           let response = await contactCleverbot(cleverbot, messageToRespond);
           console.log(`A => ${response}`);
