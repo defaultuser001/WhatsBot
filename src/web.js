@@ -60,6 +60,20 @@ class Web {
     }
   }
 
+  async filterOneAndValidateQuery(query, name, queryToValidate) {
+    const contacts = await this.getElements(query);
+    for (let contact of contacts) {
+      const text = await contact.getText();
+      if (text.includes(name)) {
+        try {
+          await contact.findElement(By.css(queryToValidate));
+          return true;
+        } catch (err) {
+          return false;
+        }
+      }
+    }
+  }
   async runScript(script) {
     await this.driver.executeScript(script);
   }

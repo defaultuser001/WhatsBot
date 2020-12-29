@@ -82,12 +82,22 @@ async function updateContacts(whatsapp) {
     let name, lastMsg, isUnread;
     if (chatSplitted[3] == ": ") {
       name = chatSplitted[0];
-      lastMsg = chatSplitted[4];
-      isUnread = chatSplitted.length > 5 ? true : false;
+      if (await isAnEmoji(whatsapp, name)) {
+        lastMsg = "Emoji";
+        isUnread = chatSplitted.length > 4 ? true : false;
+      } else {
+        lastMsg = chatSplitted[4];
+        isUnread = chatSplitted.length > 5 ? true : false;
+      }
     } else {
       name = chatSplitted[0];
-      lastMsg = chatSplitted[2];
-      isUnread = chatSplitted.length > 3 ? true : false;
+      if (await isAnEmoji(whatsapp, name)) {
+        lastMsg = "Emoji";
+        isUnread = chatSplitted.length > 2 ? true : false;
+      } else {
+        lastMsg = chatSplitted[2];
+        isUnread = chatSplitted.length > 3 ? true : false;
+      }
     }
 
     let isIgnored = false;
@@ -120,4 +130,13 @@ async function respondMsg(whatsapp, name, response) {
   await whatsapp.filterOneAndClick("._1MZWu", name);
   await whatsapp.click("._2HE1Z._1hRBM");
   await whatsapp.send("._2HE1Z._1hRBM ._1awRl", [response, "K.ENTER"]);
+}
+
+async function isAnEmoji(whatsapp, name) {
+  const isEmoji = await whatsapp.filterOneAndValidateQuery(
+    "._1MZWu",
+    name,
+    "._3Pwfx.vwouH"
+  );
+  return isEmoji;
 }
