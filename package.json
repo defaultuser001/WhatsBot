@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/defaultuser001/WhatsBot.git"
   },
-  "keywords": ["whatsapp", "bot", "javascript"],
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "javascript"
+  ],
   "author": "Pablo Quarella",
   "license": "MIT",
   "bugs": {

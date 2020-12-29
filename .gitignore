@@ -1,3 +1,6 @@
+chromedriver
+geckodriver
+
 # Logs
 logs
 *.log

@@ -3,14 +3,17 @@
 const Web = require("./src/web.js");
 const Config = require("./src/config.js");
 const Contact = require("./src/contact.js");
+const UserConfig = require("./config.json");
 
-const TIME_TO_LOGIN = 5; //Seconds
+const TIME_TO_LOGIN = UserConfig.TIME_TO_LOGIN; //Seconds
+const CONTACT_NAMES_IGNORED = UserConfig.CONTACT_NAMES_IGNORED; //i.e: 'Paul','George',etc
+const CONTACT_TO_STAY_WATCHING = UserConfig.CONTACT_TO_STAY_WATCHING; //Contact name than WhatsBot can sleep, a dead chat.
+const WHATSAPP_BROWSER = UserConfig.WHATSAPP_BROWSER;
+const CLEVERBOT_BROWSER = UserConfig.CLEVERBOT_BROWSER;
 
-const CONTACT_NAMES_IGNORED = [""]; //i.e: 'Paul','George',etc
-const CONTACT_TO_STAY_WATCHING = ""; //Contact name than WhatsBot can sleep, a dead chat.
 if (!CONTACT_TO_STAY_WATCHING) {
   console.error(
-    "Requires a dead whatsapp chat name that the bot can sleep and stay watching, complete it in app.js line 10"
+    "Requires a dead whatsapp chat name that the bot can sleep and stay watching, complete it in config.json in this dir"
   );
   process.exit();
 }
@@ -19,13 +22,20 @@ let UNREAD_CONTACTS = []; //Auto fill
 //SQL Needed
 
 (async function() {
-  new Config("chrome"); //Browser to use: "chrome" or "firefox" or "both"
+  if (
+    (WHATSAPP_BROWSER == "chrome" && CLEVERBOT_BROWSER == "firefox") ||
+    (WHATSAPP_BROWSER == "firefox" && CLEVERBOT_BROWSER == "chrome")
+  ) {
+    new Config("both"); //Browser to use: "chrome" or "firefox" or "both"
+  } else {
+    new Config(WHATSAPP_BROWSER);
+  }
 
-  let whatsapp = new Web("chrome", "https://web.whatsapp.com");
+  let whatsapp = new Web(WHATSAPP_BROWSER, "https://web.whatsapp.com");
   await whatsapp.init();
   await whatsapp.connect();
 
-  let cleverbot = new Web("chrome", "https://www.cleverbot.com");
+  let cleverbot = new Web(CLEVERBOT_BROWSER, "https://www.cleverbot.com");
   await cleverbot.init();
   await cleverbot.connect();
   await cleverbot.click("#note input");

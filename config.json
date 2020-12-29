@@ -1,0 +1,7 @@
+{
+  "TIME_TO_LOGIN": 15,
+  "CONTACT_TO_STAY_WATCHING": "",
+  "CONTACT_NAMES_IGNORED": [""],
+  "WHATSAPP_BROWSER": "chrome",
+  "CLEVERBOT_BROWSER": "chrome"
+}
