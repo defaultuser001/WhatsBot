@@ -1,0 +1,23 @@
+{
+  "name": "whatsbot",
+  "version": "1.0.0",
+  "description": "WhatsApp bot that makes your life more better",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/defaultuser001/WhatsBot.git"
+  },
+  "keywords": ["whatsapp", "bot", "javascript"],
+  "author": "Pablo Quarella",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/defaultuser001/WhatsBot/issues"
+  },
+  "homepage": "https://github.com/defaultuser001/WhatsBot#readme",
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.8"
+  }
+}
