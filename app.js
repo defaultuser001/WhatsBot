@@ -83,19 +83,19 @@ async function updateContacts(whatsapp) {
     if (chatSplitted[3] == ": ") {
       name = chatSplitted[0];
       if (await isAnEmoji(whatsapp, name)) {
-        lastMsg = "Emoji";
+        lastMsg = chatSplitted[4];
         isUnread = chatSplitted.length > 4 ? true : false;
       } else {
-        lastMsg = chatSplitted[4];
+        lastMsg = "Emoji";
         isUnread = chatSplitted.length > 5 ? true : false;
       }
     } else {
       name = chatSplitted[0];
       if (await isAnEmoji(whatsapp, name)) {
-        lastMsg = "Emoji";
+        lastMsg = chatSplitted[2];
         isUnread = chatSplitted.length > 2 ? true : false;
       } else {
-        lastMsg = chatSplitted[2];
+        lastMsg = "Emoji";
         isUnread = chatSplitted.length > 3 ? true : false;
       }
     }
