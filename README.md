@@ -5,15 +5,15 @@
 ### How to use?
 
 1. Download the driver for the browser you have (Chrome/Firefox)
-   For Chrome:
-
-   - Go to: https://chromedriver.chromium.org/downloads
-   - Download the 'chromedriver' file
-   - Put the 'chromedriver' file you have downloaded in the project root folder
-     For Firefox:
-   - Go to https://github.com/mozilla/geckodriver/releases/tag/v0.28.0
-   - Download the 'geckodriver'
-   - Put the 'geckodriver' file you have downloaded in the project root folder
+   - For Chrome:
+      - Go to: https://chromedriver.chromium.org/downloads
+      - Download the 'chromedriver' file
+      - Put the 'chromedriver' file you have downloaded in the project root folder
+   
+   - For Firefox:
+      - Go to https://github.com/mozilla/geckodriver/releases/tag/v0.28.0
+      - Download the 'geckodriver'
+      - Put the 'geckodriver' file you have downloaded in the project root folder
 
 2. Once you have cloned the repository, execute:
 
