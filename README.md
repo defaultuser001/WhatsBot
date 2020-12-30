@@ -22,7 +22,7 @@
 3. Configure the config.json file, put an contact that WhatsBot will stay and watching for new chats, for DOM reasons, it's the easiest form.
 
 4. Execute:
-   `node app.js`
+      `node app.js`
 
 5. Enjoy your new assistant, don't close the two browsers opened
 
