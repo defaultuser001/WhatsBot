@@ -57,7 +57,8 @@ let UNREAD_CONTACTS = []; //Auto fill
           let messageToRespond = contact.lastMsg;
           if (
             messageToRespond.includes("escribiendo...") ||
-            messageToRespond.includes("typing...")
+            messageToRespond.includes("typing...") ||
+            messageToRespond.includes("audio...")
           ) {
             continue;
           }
