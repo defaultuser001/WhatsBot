@@ -17,7 +17,7 @@
 
 2. Once you have cloned the repository, execute `npm install`
 
-3. Configure the config.json file, put an contact that WhatsBot will stay and watching for new chats, for DOM reasons, it's the easiest form.
+3. Configure the config.json file, put a contact that WhatsBot will stay and watching for new chats, for DOM reasons, it's the easiest form.
 
 4. Execute:
       `node app.js`
